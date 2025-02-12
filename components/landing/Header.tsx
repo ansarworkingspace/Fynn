@@ -21,7 +21,7 @@ export default function Header() {
             Testimonials
           </Link>
         </div>
-        <Button variant="outline">Sign In</Button>
+        <Button variant="outline" className="text-white">Sign In</Button>
       </nav>
     </header>
   )

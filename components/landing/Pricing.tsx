@@ -46,7 +46,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full" variant={index === 0 ? "outline" : "default"}>
+              <Button className="w-full text-white" variant={ "outline"} >
                 {plan.cta}
               </Button>
             </div>
