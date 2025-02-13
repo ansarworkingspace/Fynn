@@ -6,12 +6,13 @@ type Props = {
   params: { slug: string };
 };
 
-const Layout = ({children,params}: Props) => {
-  return (<div className="p-3">
-
-<Sidebar slug={params.slug}/>
-
-  </div>)
+const Layout = ({ children, params }: Props) => {
+  return (
+    <div className="p-3">
+      <Sidebar slug={params.slug} />
+      {children}
+    </div>
+  );
 };
 
 export default Layout;
