@@ -2,13 +2,15 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import type React from "react"; // Import React
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "sonner";
 
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
@@ -24,7 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.variable} ${outfit.variable} font-sans`}>
+        <body className={jakarta.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -32,7 +34,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-            <Toaster/>
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
