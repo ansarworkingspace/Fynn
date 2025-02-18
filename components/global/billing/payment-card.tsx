@@ -17,7 +17,30 @@ const PaymentCard = ({ current, label, landing }: Props) => {
         "p-[2px] rounded-xl overflow-hidden"
       )}
     >
-      PaymentCard
+      <div
+        className={cn(
+          landing && "radial--gradient-pink",
+          "flex flex-col rounded-xl pl-5 py-5 pr-10 bg-background-90"
+        )}
+      >
+        {landing ? (
+          <h2 className="text-2xl">
+            {label === current
+              ? "You Current Plan"
+              : current === "PRO"
+              ? "Downgrade"
+              : "Upgrade"}
+          </h2>
+        ) : (
+          <h2 className="text-2xl">
+            {label === current
+              ? "Your Current Plan"
+              : current === "PRO"
+              ? "Downgrade"
+              : "Upgrade"}
+          </h2>
+        )}
+      </div>
     </div>
   );
 };
