@@ -45,4 +45,5 @@ const PaymentCard = ({ current, label, landing }: Props) => {
   );
 };
 
+
 export default PaymentCard;
