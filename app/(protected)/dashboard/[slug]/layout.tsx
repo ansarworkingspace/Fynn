@@ -22,9 +22,7 @@ const Layout = ({ children, params }: Props) => {
       >
         <Navbar slug={params.slug} />
 
-{children}
-
-
+        {children}
       </div>
     </div>
   );

@@ -1,4 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { PLANS } from "@/constants/pages";
 import { cn } from "@/lib/utils";
+import { CircleCheck } from "lucide-react";
 import React from "react";
 
 type Props = {
@@ -49,7 +52,9 @@ const PaymentCard = ({ current, label, landing }: Props) => {
             Smart AI
           </span>
         ) : (
-          <p className="font-bold text-3xl mt-2 text-text-secondary">Standard</p>
+          <p className="font-bold text-3xl mt-2 text-text-secondary">
+            Standard
+          </p>
         )}
 
         {label === "PRO" ? (
@@ -58,6 +63,42 @@ const PaymentCard = ({ current, label, landing }: Props) => {
           </p>
         ) : (
           <p className="text-xl mb-2">Free</p>
+        )}
+
+        {PLANS[label === "PRO" ? 1 : 0].features.map((i) => (
+          <p key={i} className="mt-2 text-muted-foreground flex gap-2">
+            <CircleCheck className="text-indigo-500" />
+            {i}
+          </p>
+        ))}
+
+        {landing ? (
+          <Button
+            className={cn(
+              "rounded-full mt-5",
+              label === "PRO"
+                ? "bg-gradient-to-r from-indigo-500 text-white via-purple-500 to-pink-500"
+                : "bg-background-80 text-white hover:text-background-80"
+            )}
+          >
+            {label === current
+              ? "Get Started"
+              : current === "PRO"
+              ? "Free"
+              : "Get Started"}
+          </Button>
+        ) : (
+          <Button
+            className="rounded-full mt-5 bg-background-80 text-white hover:text-background-80"
+            disabled={label === current}
+            // onClick={onSubscription}
+          >
+            {label === current
+              ? "Active"
+              : current === "PRO"
+              ? "Downgrade"
+              : "Upgrade"}
+          </Button>
         )}
       </div>
     </div>
