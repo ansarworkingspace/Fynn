@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {
+  title: string;
+  icon: React.ReactNode;
+  description: string;
+  strategy: "INSTAGRAM" | "CRM";
+};
 
-const page = (props: Props) => {
-  return (
-    <div>page</div>
-  )
-}
+const IntegrationCard = ({ description, icon, strategy, title }: Props) => {
+  return <div className="border-2 border-[#33"></div>
+};
 
-export default page
+export default IntegrationCard;
