@@ -25,11 +25,8 @@ const PaymentCard = ({ current, label, landing }: Props) => {
       >
         {landing ? (
           <h2 className="text-2xl">
-            {label === current
-              ? "You Current Plan"
-              : current === "PRO"
-              ? "Downgrade"
-              : "Upgrade"}
+            {label === "PRO" && "Premium Plan"}
+            {label === "FREE" && "Standard"}
           </h2>
         ) : (
           <h2 className="text-2xl">
@@ -40,10 +37,31 @@ const PaymentCard = ({ current, label, landing }: Props) => {
               : "Upgrade"}
           </h2>
         )}
+        <p className="text-text-secondary text-sm mb-2">
+          This is what you plan covers for automations and ai features
+        </p>
+        {label === "PRO" ? (
+          <span
+            className="bg-gradient-to-r text-3xl from-indigo-500
+          via-purple-500 font-bold to-pink-500 bg-clip-text text-transparent
+          "
+          >
+            Smart AI
+          </span>
+        ) : (
+          <p className="font-bold text-3xl mt-2 text-text-secondary">Standard</p>
+        )}
+
+        {label === "PRO" ? (
+          <p className="mb-2">
+            <b className="text-xl">$99</b>/month
+          </p>
+        ) : (
+          <p className="text-xl mb-2">Free</p>
+        )}
       </div>
     </div>
   );
 };
-
 
 export default PaymentCard;
