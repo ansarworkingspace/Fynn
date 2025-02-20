@@ -31,3 +31,4 @@ const IntegrationCard = ({ description, icon, strategy, title }: Props) => {
 };
 
 export default IntegrationCard;
+
