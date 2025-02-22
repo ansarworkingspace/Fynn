@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import GradientButton from "../gradient-button";
+import { Button } from "@/components/ui/button";
 
 type Props = {};
 
@@ -57,6 +58,12 @@ const AutomationList = (props: Props) => {
           >
             SmartAI
           </GradientButton>
+          <Button
+            className="bg-background-80 
+          hover:bg-background-80 text-white"
+          >
+            Standard
+          </Button>
         </div>
       </Link>
     </div>
