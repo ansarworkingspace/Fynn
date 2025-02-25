@@ -1,6 +1,7 @@
 import { PencilDuoToneBlack } from "@/icons";
 import { ChevronRight, PencilIcon, PenIcon } from "lucide-react";
 import React from "react";
+import ActivateAutomationButton from "../../activate-automation-button";
 
 type Props = {
   id: string;
@@ -18,7 +19,7 @@ const AutomationBreadCrumb = ({ id }: Props) => {
           </p>
           <span
             className="cursor-pointer hover:opacity-75 duration-100
-        transition flex-shrink-0"
+        transition flex-shrink-0 mr-4"
           >
             <PencilIcon size={14} />
           </span>
@@ -37,11 +38,9 @@ const AutomationBreadCrumb = ({ id }: Props) => {
           <p className="text-text-secondary text-sm truncate min-w-0">
             Changes Saved
           </p>
-          <p className="text-text-secondary text-sm truncate min-w-0">
-            Undo | Redo
-          </p>
         </div>
       </div>
+      <ActivateAutomationButton />
     </div>
   );
 };
