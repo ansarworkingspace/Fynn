@@ -1,3 +1,4 @@
+import { onBoardUser } from "@/app/actions/user";
 
 type Props = {};
 
