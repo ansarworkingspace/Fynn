@@ -3,6 +3,8 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { findUser } from "./queries";
+import { refreshToken } from "@/lib/fetch";
+import { updateIntegration } from "../integrations/queries";
 
 export const onCurrentUser = async () => {
   const user = await currentUser();
@@ -22,10 +24,33 @@ export const onBoardUser = async () => {
         const days = Math.round(time_left / (1000 * 3600 * 24));
         if (days < 5) {
           console.log("refresh");
-          const refresh = await
+          const refresh = await refreshToken(found.integrations[0].token);
+
+          const today = new Date();
+          const expire_date = today.setDate(today.getDate() + 60);
+          const update_token = await updateIntegration(
+            refresh.access_token,
+            new Date(expire_date),
+            found.integrations[0].id
+          );
+
+          if (!update_token) {
+            console.log("Update token failed");
+          }
+        }
+      }
+
+      return {
+        status:200,
+        data:{
+          firstname:found.firstname,
+          lastname:found.lastname,
         }
       }
     }
+
+
+    
   } catch (error) {
     console.log(error);
   }
