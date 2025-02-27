@@ -49,8 +49,8 @@ export const onBoardUser = async () => {
       }
     }
 
+const created = await createUser()
 
-    
   } catch (error) {
     console.log(error);
   }
