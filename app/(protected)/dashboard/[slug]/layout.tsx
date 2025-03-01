@@ -29,3 +29,4 @@ const Layout = ({ children, params }: Props) => {
 };
 
 export default Layout;
+
