@@ -1,3 +1,9 @@
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+
 import Navbar from "@/components/global/navbar";
 import Sidebar from "@/components/global/sidebar";
 import React from "react";
@@ -8,6 +14,10 @@ type Props = {
 };
 
 const Layout = ({ children, params }: Props) => {
+  const query = new QueryClient();
+
+  const PrefetchUserProfile()
+
   return (
     <div className="p-3">
       <Sidebar slug={params.slug} />
@@ -29,4 +39,3 @@ const Layout = ({ children, params }: Props) => {
 };
 
 export default Layout;
-
