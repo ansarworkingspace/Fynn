@@ -7,16 +7,21 @@ import {
 import Navbar from "@/components/global/navbar";
 import Sidebar from "@/components/global/sidebar";
 import React from "react";
+import {
+  PreFetchUserAutomations,
+  PrefetchUserProfile,
+} from "@/app/react-query/prefetch";
 
 type Props = {
   children: React.ReactNode;
   params: { slug: string };
 };
 
-const Layout = ({ children, params }: Props) => {
+const Layout = async ({ children, params }: Props) => {
   const query = new QueryClient();
 
-  const PrefetchUserProfile()
+  await PrefetchUserProfile(query);
+  await PreFetchUserAutomations(query);
 
   return (
     <div className="p-3">
